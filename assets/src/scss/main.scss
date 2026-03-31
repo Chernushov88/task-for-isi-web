@@ -4,6 +4,10 @@
 @use "base/typography";
 @use "base/fonts";
 
+// plugins
+@use "node_modules/swiper/swiper-bundle.min.css";
+@use "node_modules/aos/dist/aos.css";
+
 // components
 @use "components/buttons";
 @use "components/links";
