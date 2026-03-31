@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+  <body>
+    <div style="display: none !important">{{{report}}}</div>
+    <div class="icons-preview">
+      {{#shapes}}
+      <div
+        class="icon-card"
+        style="display: inline-block; margin: 10px; text-align: center"
+      >
+        <svg width="32" height="32">
+          <use xlink:href="#{{id}}"></use>
+        </svg>
+        <p style="font-size: 10px">{{id}}</p>
+      </div>
+      {{/shapes}}
+    </div>
+  </body>
+</html>

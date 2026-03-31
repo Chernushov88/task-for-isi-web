@@ -1,0 +1,99 @@
+@use "base/variables" as *;
+
+.header {
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(238, 238, 238, 0.1); // Більш сучасний прозорий бордер
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: inherit; // Або ваш основний колір фону
+
+  @media (min-width: 768px) {
+    padding: 20px 0;
+  }
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .logo {
+    display: flex;
+    align-items: center;
+    @media (max-width: 992px) {
+      max-width: 150px;
+    }
+    &__img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__body {
+    display: flex;
+    align-items: center;
+    gap: 7.2rem;
+  }
+  &-list {
+    display: flex;
+    gap: 32px;
+    &__link {
+      text-decoration: none;
+      color: $color-white;
+      font-weight: 500;
+      font-size: $font-size-base - 2px;
+      transition: color $transition-base;
+
+      &:hover {
+        color: $color-neon-green;
+      }
+
+      &.active {
+        position: relative;
+        color: $color-neon-green;
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -5px;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          background-color: $color-neon-green;
+        }
+      }
+    }
+  }
+
+  &-actions {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    .lang-switch {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: $font-size-base - 2px;
+      text-transform: uppercase;
+      .active {
+        color: $color-neon-green;
+      }
+      &__link {
+        color: $color-purple-light;
+        text-decoration: none;
+        transition: $transition-base;
+
+        &:hover {
+          color: $color-white;
+        }
+
+        &.active {
+          color: $color-neon-green;
+          pointer-events: none;
+        }
+      }
+    }
+  }
+}
