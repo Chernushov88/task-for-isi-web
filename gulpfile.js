@@ -10,20 +10,20 @@ const imagemin = require("gulp-imagemin");
 const webp = require("gulp-webp");
 const svgSprite = require("gulp-svg-sprite");
 const del = require("del");
-const uglify = require("gulp-uglify");
 const fileInclude = require("gulp-file-include");
 const webpack = require("webpack-stream");
 const cheerio = require("gulp-cheerio");
 const replace = require("gulp-replace");
 const svgmin = require("gulp-svgmin");
 const filter = require("gulp-filter").default;
+const path = require("path");
 
 const paths = {
   html: "assets/src/*.html",
   scss: "assets/src/scss/main.scss",
   js: "assets/src/js/main.js",
   images: "assets/src/img/**/*.{jpg,jpeg,png}",
-  svg: "assets/src/img/svg/*.svg",
+  svg: "assets/src/img/svg/**/*.sv",
   build: "dist/",
 };
 
@@ -82,10 +82,17 @@ const svgFilter = filter(
   { restore: true },
 );
 
+
+
+
 const sprite = () => {
   return src(paths.svg)
-    .pipe(svgFilter)
-    .pipe(svgmin())
+    .pipe(
+      svgmin({
+        plugins: [{ removeViewBox: false }],
+        js2svg: { pretty: true },
+      }),
+    )
     .pipe(
       cheerio({
         run: function ($) {
@@ -96,23 +103,36 @@ const sprite = () => {
         parserOptions: { xmlMode: true },
       }),
     )
+    .pipe(replace("&gt;", ">"))
     .pipe(
       svgSprite({
-        mode: {
-          symbol: {
-            sprite: "sprite.svg",
-          },
-        },
         shape: {
           id: {
-            generator: (name) =>
-              "icon-" + name.split("/").pop().replace(".svg", ""),
+            generator: (name) => `icon-${path.basename(name, ".svg")}`,
+          },
+        },
+        mode: {
+          symbol: {
+            dest: ".",
+            sprite: "symbol/sprite.svg",
+            render: {
+              html: {
+                // Path to the file we just created
+                template: path.resolve(__dirname, "sprite-template.html"),
+                dest: "sprite.html",
+              },
+            },
           },
         },
       }),
     )
-    .pipe(dest(paths.build + "img"));
+    .pipe(dest(paths.build));
 };
+
+
+
+
+
 
 const svgCopy = () => {
   return src([
@@ -138,11 +158,11 @@ const serve = () => {
 
 exports.default = series(
   clean,
-  parallel(html, styles, scripts, images, sprite, svgCopy),
+  parallel(html, styles, scripts, images, svgCopy),
   serve,
 );
 
 exports.build = series(
   clean,
-  parallel(html, styles, scripts, images, sprite, svgCopy),
+  parallel(html, styles, scripts, images, svgCopy),
 );
