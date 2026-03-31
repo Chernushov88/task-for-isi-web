@@ -1,0 +1,53 @@
+@use "base/variables" as *;
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 32px;
+  font-family: $font-family-base;
+  font-size: $font-size-base - 2px;
+  font-weight: 600;
+  border-radius: 2px; // Округлі кнопки з макету
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: $transition-base;
+  text-decoration: none;
+  line-height: 1;
+  min-width: 200px;
+  height: 54px;
+
+  // Основна фіолетова кнопка
+  &--primary {
+    background-color: $color-neon-purple;
+    color: $color-white;
+
+    &:hover {
+      background-color: lighten($color-neon-purple, 10%);
+      transform: translateY(-2px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  // Світла/Контурна кнопка
+  &--outline {
+    background-color: transparent;
+    border-color: $color-neon-purple;
+    color: $color-neon-purple;
+
+    &:hover {
+      background-color: $color-neon-purple;
+      color: $color-white;
+    }
+  }
+
+  // Кнопка з іконкою (приклад для "Learn More")
+  &__icon {
+    margin-left: 8px;
+    display: flex;
+    align-items: center;
+  }
+}
