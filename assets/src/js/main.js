@@ -36,3 +36,35 @@
 
 })(window, document);
 
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const burger = document.querySelector(".menu-toggle");
+  const menu = document.querySelector(".nav__body");
+  const overlay = document.createElement("div");
+
+  // Створюємо оверлей динамічно, якщо його немає в HTML
+  overlay.classList.add("menu-overlay");
+  document.body.appendChild(overlay);
+
+  const toggleMenu = () => {
+    burger.classList.toggle("is-active");
+    menu.classList.toggle("is-open");
+    overlay.classList.toggle("is-open");
+    document.body.classList.toggle("no-scroll"); // Заборона скролу фону
+  };
+
+  // Відкриття/Закриття по бургеру
+  burger.addEventListener("click", toggleMenu);
+
+  // Закриття по кліку на оверлей
+  overlay.addEventListener("click", toggleMenu);
+
+  // Закриття по кліку на посилання
+  const menuLinks = document.querySelectorAll(".nav-list__link");
+  menuLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      if (menu.classList.contains("is-open")) toggleMenu();
+    });
+  });
+});
