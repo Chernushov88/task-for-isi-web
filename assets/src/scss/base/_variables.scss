@@ -1,1 +1,58 @@
-$black: #000;
+
+// ==========================================================================
+// Variables
+// ==========================================================================
+$container-width: 1330px;
+// --- Fonts ---
+$font-family-base: 'Manrope', sans-serif;
+
+// --- Colors ---
+// Main Colors
+$color-neon-green:  #5FF69D;
+$color-neon-purple: #6251FE;
+$color-green-light: #83F5B2;
+$color-purple-light: #D4CFFF;
+$color-purple-dark:  #3E397B;
+
+// Neutral Colors
+$color-white: #F2F2F2;
+$color-black: #090909;
+
+// Semantic Colors
+$color-error: #FF5154;
+
+// --- Typography ---
+// Headings
+$h1-font-size: 64px;
+$h1-font-weight: 800; // Extra Bold
+
+$h2-font-size: 48px;
+$h2-font-weight: 600; // SemiBold (також доступні Bold, ExtraBold)
+
+$h3-font-size: 38px;
+$h3-font-weight: 700; // Bold
+
+$h4-font-size: 36px;
+$h4-font-weight: 600; // SemiBold
+
+$h5-font-size: 34px;
+$h5-font-weight: 600; // SemiBold
+
+$h6-font-size: 28px;
+$h6-font-weight: 600; // SemiBold
+
+$h7-font-size: 26px;
+$h7-font-weight: 600; // SemiBold
+
+// Body Text
+$font-size-base: 18px;
+$font-weight-normal: 400; // Regular
+$font-weight-medium: 500; // Medium
+
+
+
+$border-radius-base: 8px;
+$input-height: 48px;
+$button-padding-y: 12px;
+$button-padding-x: 24px;
+$transition-base: all 0.3s ease-in-out;

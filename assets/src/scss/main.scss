@@ -4,8 +4,16 @@
 @use "base/typography";
 @use "base/fonts";
 
-// plugins
+// components
+@use "components/buttons";
+@use "components/links";
+@use "components/cards";
+@use "components/mobile-menu.scss";
 
 // layout
+@use "layout/container";
+@use "layout/header";
 
 // sections
+@use "sections/hero";
+@use "sections/posts";
