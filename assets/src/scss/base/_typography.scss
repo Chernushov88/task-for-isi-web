@@ -1,5 +1,8 @@
 @use "../base/variables" as *;
 
+html {
+  scroll-behavior: smooth;
+}
 body {
   position: relative;
   min-height: 100vh;
@@ -15,6 +18,9 @@ body {
   &.no-scroll {
     overflow: hidden;
   }
+}
+main {
+  overflow-x: hidden;
 }
 
 // ==========================================================================

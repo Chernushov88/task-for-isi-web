@@ -2,6 +2,7 @@
 
 .hero {
   position: relative;
+  margin-bottom: 120px;
   padding: 105px 0;
   background: url(../img/hero-bg.png) center center/cover no-repeat;
   .elem {
@@ -69,11 +70,6 @@
       gap: 12px;
       margin-bottom: 34px;
       color: $color-neon-green;
-      background-color: rgba($color-black, 0.2);
-      img {
-      }
-      span {
-      }
     }
     &__title {
       margin-bottom: 20px;
@@ -105,6 +101,8 @@
       overflow: hidden;
       border-radius: $border-radius-base;
       img {
+        display: block;
+        width: 100%;
       }
     }
   }
