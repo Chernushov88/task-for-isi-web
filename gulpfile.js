@@ -24,6 +24,7 @@ const paths = {
   js: "assets/src/js/main.js",
   images: "assets/src/img/**/*.{jpg,jpeg,png}",
   svg: "assets/src/img/svg/**/*.sv",
+  json: "assets/src/data/**/*.json",
   build: "dist/",
 };
 
@@ -132,6 +133,9 @@ const sprite = () => {
 
 
 
+const jsonCopy = () => {
+  return src(paths.json).pipe(dest(paths.build + "data"));
+};
 
 
 const svgCopy = () => {
@@ -158,11 +162,11 @@ const serve = () => {
 
 exports.default = series(
   clean,
-  parallel(html, styles, scripts, images, svgCopy),
+  parallel(html, styles, scripts, images, svgCopy, jsonCopy),
   serve,
 );
 
 exports.build = series(
   clean,
-  parallel(html, styles, scripts, images, svgCopy),
+  parallel(html, styles, scripts, images, svgCopy, jsonCopy),
 );
