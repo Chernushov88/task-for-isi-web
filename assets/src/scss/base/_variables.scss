@@ -1,25 +1,24 @@
-
 // ==========================================================================
 // Variables
 // ==========================================================================
-$container-width: 1330px;
+$container-width: 1340px;
 // --- Fonts ---
-$font-family-base: 'Manrope', sans-serif;
+$font-family-base: "Manrope", sans-serif;
 
 // --- Colors ---
 // Main Colors
-$color-neon-green:  #5FF69D;
-$color-neon-purple: #6251FE;
-$color-green-light: #83F5B2;
-$color-purple-light: #D4CFFF;
-$color-purple-dark:  #3E397B;
+$color-neon-green: #5ff69d;
+$color-neon-purple: #6251fe;
+$color-green-light: #83f5b2;
+$color-purple-light: #d4cfff;
+$color-purple-dark: #3e397b;
 
 // Neutral Colors
-$color-white: #F2F2F2;
+$color-white: #f2f2f2;
 $color-black: #090909;
 
 // Semantic Colors
-$color-error: #FF5154;
+$color-error: #ff5154;
 
 // --- Typography ---
 // Headings
@@ -48,8 +47,6 @@ $h7-font-weight: 600; // SemiBold
 $font-size-base: 18px;
 $font-weight-normal: 400; // Regular
 $font-weight-medium: 500; // Medium
-
-
 
 $border-radius-base: 8px;
 $input-height: 48px;

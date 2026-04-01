@@ -1,10 +1,17 @@
 @use "../base/variables" as *;
+@use "../base/typography" as *;
 
 .hero {
   position: relative;
   margin-bottom: 120px;
   padding: 105px 0;
   background: url(../img/hero-bg.png) center center/cover no-repeat;
+  @media (max-width: 992px) {
+    padding: 56px 0 100px;
+  }
+  @media (max-width: 768px) {
+    background: url(../img/hero-bg-sm.jpg) center center/cover no-repeat;
+  }
   .elem {
     position: absolute;
     //z-index: 9;
@@ -34,18 +41,27 @@
     text-align: center;
   }
   &__title {
+    @include h2;
     margin-bottom: 24px;
     color: $color-white;
     letter-spacing: 2px;
     span {
       color: $color-neon-green;
     }
+    @media (max-width: 992px) {
+      @include h4;
+      margin-bottom: 20px;
+    }
   }
 
   &__subtitle {
+    @include b2;
     font-weight: 500;
     line-height: 1.3;
     color: rgba($color-white, 0.6);
+    @media (max-width: 992px) {
+      @include b4;
+    }
   }
   &-post {
     &__inner {
@@ -55,14 +71,39 @@
       padding: 0 110px;
       margin-bottom: 42px;
       border-radius: $border-radius-base;
+      @media (max-width: 1200px) {
+        padding: 0 2rem;
+      }
+      @media (max-width: 992px) {
+        padding: 0;
+      }
+      @media (max-width: 768px) {
+        display: flex;
+        flex-direction: column-reverse;
+      }
     }
     &__content {
+      position: relative;
       display: flex;
       flex-direction: column;
       justify-content: center;
       padding: 32px 20px 32px 24px;
       background-color: rgba($color-black, 0.2);
       border-radius: $border-radius-base 0 0 $border-radius-base;
+      border: 1px solid rgba($color-white, 0.2);
+      @media (max-width: 992px) {
+        padding: 20px;
+        background-color: transparent;
+        &:after {
+          content: "";
+          position: absolute;
+          bottom: 0px;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          background: $color-neon-green;
+        }
+      }
     }
     &__meta {
       display: flex;
@@ -70,11 +111,26 @@
       gap: 12px;
       margin-bottom: 34px;
       color: $color-neon-green;
+      @media (max-width: 992px) {
+        @include b4;
+        margin-bottom: 20px;
+      }
+      .sm-visible {
+        span {
+          display: inline-block;
+          margin-left: 5px;
+          color: $color-white;
+        }
+      }
     }
     &__title {
       margin-bottom: 20px;
       line-height: 1.3;
       letter-spacing: 0.2px;
+      @media (max-width: 992px) {
+        @include b3;
+        margin-bottom: 12px;
+      }
     }
     &__text {
       line-height: 1.4;
@@ -85,6 +141,12 @@
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
       word-break: break-word;
+      @media (max-width: 992px) {
+        @include b4;
+        height: 50px;
+        -webkit-line-clamp: 2;
+        font-weight: 400;
+      }
     }
     .btn-more {
       display: flex;
@@ -92,9 +154,8 @@
       margin-top: auto;
       color: $color-green-light;
       font-size: $font-size-base - 2px;
-      img {
-      }
-      span {
+      @media (max-width: 768px) {
+        display: none;
       }
     }
     &__image {
@@ -130,6 +191,9 @@
         &:after {
           font-size: 18.75px;
           color: $color-white;
+        }
+        @media (max-width: 768px) {
+          display: none;
         }
       }
       &-next {

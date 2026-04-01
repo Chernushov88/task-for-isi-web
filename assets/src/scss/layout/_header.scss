@@ -1,7 +1,7 @@
 @use "base/variables" as *;
 
 .header {
-  padding: 15px 0;
+  padding: 24px 0;
   border-bottom: 1px solid rgba(238, 238, 238, 0.1); // Більш сучасний прозорий бордер
   position: sticky;
   top: 0;
@@ -22,7 +22,7 @@
     display: flex;
     align-items: center;
     @media (max-width: 992px) {
-      max-width: 150px;
+      max-width: 198px;
     }
     &__img {
       display: block;
@@ -34,11 +34,17 @@
   &__body {
     display: flex;
     align-items: center;
-    gap: 7.2rem;
+    gap: 2rem;
+    @media (min-width: 1200px) {
+      gap: 7.2rem;
+    }
   }
   &-list {
     display: flex;
-    gap: 32px;
+    gap: 1rem;
+    @media (min-width: 1200px) {
+      gap: 2rem;
+    }
     &__link {
       text-decoration: none;
       color: $color-white;
